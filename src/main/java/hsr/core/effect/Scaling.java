@@ -6,28 +6,38 @@ import hsr.core.Stat;
 
 public class Scaling {
     private Stat stat; // If effect has other scaling type such as defense.
-    private Number flatModifier; // What the modifier is for said scaling, without increasing based on a constant value.
-    private List<Number> perLevelModifier; // What the modifier is for said scaling, without increasing based on a changing level value.
+    private Number modifierPercent; // What the modifier is for said scaling, without increasing based on a constant value as a percentage.
+    private Number modifierFlat; // What the modifier is for said scaling, without increasing based on a constant value as a flat value.
+    private List<Number> levelModifierPercent; // What the modifier is for said scaling, without increasing based on a changing level value.
+    private List<Number> levelModifierFlat;
     public Stat getStat() {
         return stat;
     }
     public void setStat(Stat stat) {
         this.stat = stat;
     }
-    public Number getFlatModifier() {
-        return flatModifier;
+    public Number getModifierPercent() {
+        return modifierPercent;
     }
-    public void setFlatModifier(Number flatModifier) {
-        this.flatModifier = flatModifier;
+    public void setModifierPercent(Number modifierPercent) {
+        this.modifierPercent = modifierPercent;
     }
-    public List<Number> getPerLevelModifier() {
-        return perLevelModifier;
+    public Number getModifierFlat() {
+        return modifierFlat;
     }
-    public void setPerLevelModifier(List<Number> perLevelModifier) {
-        this.perLevelModifier = perLevelModifier;
+    public void setModifierFlat(Number modifierFlat) {
+        this.modifierFlat = modifierFlat;
     }
-    @Override
-    public String toString() {
-        return "Scaling [stat=" + stat + ", flatModifier=" + flatModifier + ", perLevelModifier=" + perLevelModifier + "]";
+    public List<Number> getLevelModifierPercent() {
+        return levelModifierPercent;
+    }
+    public void setLevelModifierPercent(List<Number> levelModifierPercent) {
+        this.levelModifierPercent = levelModifierPercent;
+    }
+    public List<Number> getLevelModifierFlat() {
+        return levelModifierFlat;
+    }
+    public void setLevelModifierFlat(List<Number> levelModifierFlat) {
+        this.levelModifierFlat = levelModifierFlat;
     }
 }

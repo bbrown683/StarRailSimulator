@@ -1,6 +1,6 @@
 package hsr.core.simulation;
 
-public class Hit {
+public class Damage {
     private int nonCrit;
     private int crit;
     private int weightedAverage;

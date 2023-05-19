@@ -2,20 +2,59 @@ package hsr.core.simulation;
 
 import java.util.List;
 
-import hsr.core.character.Ability;
-import hsr.core.effect.Effect;
 import hsr.core.effect.Scaling;
 
 public class Calculator {
+    public int getHealing(Number totalStat, Scaling statScaling, Integer talentLevel, float outgoingHealingBonus) {
+        float baseHealing = 0.0f;
+        float percentScalingFloat = 0.0f;
+        float flatScalingFloat = 0.0f;
+        if(talentLevel == null) {
+            float percentScaling = statScaling.getModifierPercent().floatValue();
+            float flatScaling = statScaling.getModifierFlat().floatValue();
+            baseHealing = ((percentScaling + flatScaling) / 100.0f) * totalStat.floatValue();
+        } else {
+            List<Number> percentScalingList = statScaling.getLevelModifierPercent();
+            List<Number> flatScalingList = statScaling.getLevelModifierFlat();
+            if(percentScalingList != null &&  talentLevel <= percentScalingList.size()) {
+                percentScalingFloat = percentScalingList.get(talentLevel - 1).floatValue();
+            }
+            if(flatScalingList != null && talentLevel <= flatScalingList.size()) {
+                flatScalingFloat = flatScalingList.get(talentLevel - 1).floatValue();
+            }
+            baseHealing = (percentScalingFloat  / 100.0f) * totalStat.floatValue() + flatScalingFloat;
+        }
+        return Math.round(baseHealing * (1.0f + outgoingHealingBonus));
+    }
+
     // Calculated based on https://www.prydwen.gg/star-rail/guides/damage-formula/
-    public Hit getDamage(Number totalStat, Scaling statScaling, Integer talentLevel, float elementalDamageMultiplier, float allDamageMultiplier, float dotDamageMultiplier, int characterLevel, int enemyLevel,
+    public Damage getDamage(Number totalStat, Scaling statScaling, Integer talentLevel, float elementalDamageMultiplier, float allDamageMultiplier, float dotDamageMultiplier, int characterLevel, int enemyLevel,
         float defenseReduction, float defenseIgnore, float resistance, float resistancePenetration, float elementalDamageTaken, float allDamageTaken, boolean broken, float critRate, float critDamage) {
+        
         // Base DMG
         float baseDamage = 0.0f;
+        float percentScalingFloat = 0.0f;
+        float flatScalingFloat = 0.0f;
         if(talentLevel == null) {
-            baseDamage = (statScaling.getFlatModifier().floatValue() / 100.0f) * totalStat.floatValue();
+            Number percentScaling = statScaling.getModifierPercent();
+            Number flatScaling = statScaling.getModifierFlat();
+            if(percentScaling != null) {
+                percentScalingFloat = percentScaling.floatValue();
+            }
+            if(flatScaling != null) {
+                flatScalingFloat = flatScaling.floatValue();
+            }
+            baseDamage = (percentScalingFloat / 100.0f) * totalStat.floatValue() + flatScalingFloat;
         } else {
-            baseDamage = (statScaling.getPerLevelModifier().get(talentLevel - 1).floatValue() / 100.0f) * totalStat.floatValue();
+            List<Number> percentScalingList = statScaling.getLevelModifierPercent();
+            List<Number> flatScalingList = statScaling.getLevelModifierFlat();
+            if(percentScalingList != null &&  talentLevel <= percentScalingList.size()) {
+                percentScalingFloat = percentScalingList.get(talentLevel - 1).floatValue();
+            }
+            if(flatScalingList != null && talentLevel <= flatScalingList.size()) {
+                flatScalingFloat = flatScalingList.get(talentLevel - 1).floatValue();
+            }
+            baseDamage = (percentScalingFloat  / 100.0f) * totalStat.floatValue() + flatScalingFloat;
         }
 
         // DMG% Multiplier.
@@ -42,7 +81,7 @@ public class Calculator {
         int estimatedCritDamage = Math.round((1.0f + (critDamage / 100.0f)) * estimatedNonCritDamage);
         int estimatedAverageDamage = Math.round((((100.0f - critRate) / 100.0f) * estimatedNonCritDamage) + (((critRate / 100.0f) * estimatedCritDamage)));
 
-        Hit damage = new Hit();
+        Damage damage = new Damage();
         damage.setNonCrit(estimatedNonCritDamage);        
         damage.setCrit(estimatedCritDamage);
         damage.setWeightedAverage(estimatedAverageDamage);

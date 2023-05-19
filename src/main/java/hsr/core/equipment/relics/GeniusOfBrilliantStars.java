@@ -7,10 +7,10 @@ import hsr.core.Stat;
 import hsr.core.equipment.RelicSetBonuses;
 import hsr.core.equipment.RelicSetBonusesInterface;
 
-public class MusketeerOfWildWheat implements RelicSetBonusesInterface {
+public class GeniusOfBrilliantStars implements RelicSetBonusesInterface {
     @Override
     public RelicSetBonuses get2PieceSetBonuses() {
-        return new RelicSetBonuses(Collections.singletonMap(Stat.ATK_PERCENT, 12.0f), null);
+        return new RelicSetBonuses(Collections.singletonMap(Stat.QUANTUM_DMG, 10.0f), null);
     }
     @Override
     public RelicSetBonuses get4PieceSetBonuses() {

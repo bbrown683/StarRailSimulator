@@ -1,8 +1,8 @@
 {
-    "name": "Serval",
-    "rarity": "STAR_4",
-    "path": "ERUDITION",
-    "element": "LIGHTNING",
+    "name": "Seele",
+    "rarity": "STAR_5",
+    "path": "HUNT",
+    "element": "QUANTUM",
     "baseStats": {
         "LEVEL_1": {
             "health": 124,
@@ -90,7 +90,7 @@
         }
     },
     "basicAttack": {
-        "name": "Roaring Thunderclap",
+        "name": "Thwack",
         "type": "BASIC_ATK",
         "category": "SINGLE_TARGET",
         "effects": [
@@ -99,118 +99,76 @@
                 "recipient": "ENEMY",
                 "scaling": {
                     "stat": "ATK",
-                    "levelModifierPercent": [50, 60, 70, 80, 90, 100, 110, 120, 130]
+                    "perLevelModifier": [50, 60, 70, 80, 90, 100, 110, 120, 130]
                 }
             }
         ]
     },
     "skill": {
-        "name": "Lightning Flash",
+        "name": "Sheathed Blade",
         "type": "SKILL",
-        "category": "BLAST",
+        "category": "SINGLE_TARGET",
         "cost": 1,
-        "effects": [
-            {
-                "effect": "BLAST",
-                "recipient": "ENEMY",
-                "scaling": {
-                    "stat": "ATK",
-                    "levelModifierPercent": [70, 77, 84, 91, 98, 105, 113.75, 122.5, 131.25, 140, 147, 154, 161, 168, 175]
-                },
-                "adjacentScaling": {
-                    "stat": "ATK",
-                    "levelModifierPercent": [30, 33, 36, 39, 42, 45, 48.75, 52.5, 56.25, 60, 63, 66, 69, 72, 75]
-                }
-            },
-            {
-                "effect": "DEBUFF",
-                "recipient": "ENEMY",
-                "duration": 2,
-                "type": "SHOCK",
-                "baseHitRate": 80,
-                "damage" : {
-                    "effect": "SINGLE_TARGET",
-                    "recipient": "ENEMY",
-                    "scaling": {
-                        "stat": "ATK",
-                        "levelModifierPercent": [40, 44, 48, 52, 56, 62, 70, 80, 92, 104, 109.2, 114.4, 119.6, 124.8, 130]
-                    }
-                }
-            }
-        ]
-    },
-    "ultimate": {
-        "name": "Here Comes the Mechanical Fever",
-        "type": "ULTIMATE",
-        "category": "AOE",
-        "cost": 100,
-        "effects": [
-            {
-                "effect": "AREA_OF_EFFECT",
-                "recipient": "ENEMY",
-                "scaling": {
-                    "stat": "ATK",
-                    "levelModifierPercent": [108, 115.2, 122.4, 129.6, 136.8, 144, 153, 162, 171, 180, 187.2, 194.4, 201.6, 208.8, 216]
-                }
-            },
-            {
-                "effect": "DEBUFF",
-                "recipient": "ENEMY",
-                "duration": 2,
-                "type": "EXTEND_SHOCK"
-            }
-        ]
-    },
-    "talent": {
-        "name": "Galvanic Chords",
-        "type": "TALENT",
-        "category": "ENHANCE",
-        "effects": [
-            {
-                "effect": "AREA_OF_EFFECT",
-                "recipient": "ENEMY",
-                "scaling": {
-                    "stat": "ATK",
-                    "levelModifierPercent": [36, 39.6, 43.2, 46.8, 50.4, 54, 58.5, 63, 67.5, 72, 75.6, 79.2, 82.8, 86.4, 90]
-                },
-                "triggerFrom": {
-                    "scope": "SELF",
-                    "attacks": true
-                },
-                "triggerFor": {
-                    "scope": "ENEMY",
-                    "hasDebuff": "SHOCK"
-                }
-            }
-        ]
-    },
-    "technique": {
-        "name": "Good Night, Belobog",
-        "type": "TECHNIQUE",
         "effects": [
             {
                 "effect": "SINGLE_TARGET",
                 "recipient": "ENEMY",
                 "scaling": {
                     "stat": "ATK",
-                    "modifierPercent": 50
+                    "perLevelModifier": [70, 77, 84, 91, 98, 105, 113.75, 122.5, 131.25, 140, 147, 154, 161, 168, 175]
                 }
             },
             {
-                "effect": "DEBUFF",
-                "recipient": "ENEMY",
-                "duration": 3,
-                "type": "SHOCK",
-                "baseHitRate": 100,
-                "damage": {
-                    "effect": "AREA_OF_EFFECT",
-                    "recipient": "ENEMY",
-                    "scaling": {
-                        "stat": "ATK",
-                        "modifierPercent": 50
-                    }
+                "effect": "BUFF",
+                "recipient": "SELF",
+                "duration": 2,
+                "type": "INCREASE_STAT",
+                "statModifier" : {
+                    "stat": "SPD",
+                    "modifier": 25
                 }
             }
         ]
+    },
+    "ultimate": {
+        "name": "Butterfly Flurry",
+        "type": "ULTIMATE",
+        "category": "SINGLE_TARGET",
+        "cost": 120,
+        "effects": [
+            {
+                "effect": "SINGLE_TARGET",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [255, 272, 289, 306, 323, 340, 361.25, 382.5, 403.75, 425, 459, 476, 493, 510]
+                }
+            }
+        ]
+    },
+    "talent": {
+        "name": "Resurgence",
+        "type": "TALENT",
+        "category": "ENHANCE",
+        "effects": [
+            {
+                "effect": "BUFF",
+                "recipient": "SELF",
+                "duration": 1,
+                "scaling": {
+                    "stat": "INCREASE_DMG",
+                    "perLevelModifier": [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100]
+                },
+                "triggerFrom": {
+                    "scope": "SELF",
+                    "defeatsEnemy": true,
+                    "usesUltimate": true
+                }
+            }
+        ]
+    },
+    "technique": {
+        "name": "Phantom Illusion",
+        "type": "TECHNIQUE"
     }
 }

@@ -69,7 +69,7 @@ public class Character extends Entity {
             case HP: return baseHealth + bonusHealth;
             case ATK: return baseAttack + bonusAttack;
             case DEF: return baseDefense + bonusDefense;
-            case SPEED: return baseSpeed + bonusSpeed;
+            case SPD: return baseSpeed + bonusSpeed;
             case CRIT_RATE: return critRate;
             case CRIT_DMG: return critDamage;
             case LIGHTNING_DMG: return elementalDamageBoost.getOrDefault(Element.LIGHTNING, 0.0f);
@@ -234,8 +234,8 @@ public class Character extends Entity {
             case ATK_PERCENT: bonusAttack += Math.round(baseAttack * (value.floatValue() / 100)); return;
             case DEF: bonusDefense += value.intValue(); return;
             case DEF_PERCENT: bonusDefense += Math.round(baseDefense * (value.floatValue() / 100)); return;
-            case SPEED: bonusSpeed += value.intValue(); return;
-            case SPEED_PERCENT: bonusSpeed += Math.round(baseSpeed * (value.floatValue() / 100)); return;
+            case SPD: bonusSpeed += value.intValue(); return;
+            case SPD_PERCENT: bonusSpeed += Math.round(baseSpeed * (value.floatValue() / 100)); return;
             case BREAK_EFFECT: breakEffect += value.floatValue(); return;
             case CRIT_DMG: critDamage += value.floatValue(); return;
             case CRIT_RATE: critRate += value.floatValue(); return;
