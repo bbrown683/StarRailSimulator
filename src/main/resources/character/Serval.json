@@ -1,0 +1,216 @@
+{
+    "name": "Serval",
+    "rarity": "STAR_5",
+    "path": "ERUDITION",
+    "element": "LIGHTNING",
+    "baseStats": {
+        "LEVEL_1": {
+            "health": 124,
+            "attack": 88,
+            "defense": 51,
+            "speed": 104
+        },
+        "LEVEL_20": {
+            "health": 243,
+            "attack": 173,
+            "defense": 99,
+            "speed": 104
+        },
+        "LEVEL_20_30": {
+            "health": 293,
+            "attack": 208,
+            "defense": 119,
+            "speed": 104
+        },
+        "LEVEL_30": {
+            "health": 355,
+            "attack": 253,
+            "defense": 145,
+            "speed": 104
+        },
+        "LEVEL_30_40": {
+            "health": 405,
+            "attack": 288,
+            "defense": 165,
+            "speed": 104
+        },
+        "LEVEL_40": {
+            "health": 468,
+            "attack": 333,
+            "defense": 191,
+            "speed": 104
+        },
+        "LEVEL_40_50": {
+            "health": 517,
+            "attack": 368,
+            "defense": 211,
+            "speed": 104
+        },
+        "LEVEL_50": {
+            "health": 580,
+            "attack": 412,
+            "defense": 237,
+            "speed": 104
+        },
+        "LEVEL_50_60": {
+            "health": 630,
+            "attack": 448,
+            "defense": 257,
+            "speed": 104
+        },
+        "LEVEL_60": {
+            "health": 692,
+            "attack": 492,
+            "defense": 283,
+            "speed": 104
+        },
+        "LEVEL_60_70": {
+            "health": 742,
+            "attack": 528,
+            "defense": 303,
+            "speed": 104
+        },
+        "LEVEL_70": {
+            "health": 804,
+            "attack": 572,
+            "defense": 328,
+            "speed": 104
+        },
+        "LEVEL_70_80": {
+            "health": 854,
+            "attack": 608,
+            "defense": 349,
+            "speed": 104
+        },
+        "LEVEL_80": {
+            "health": 917,
+            "attack": 652,
+            "defense": 374,
+            "speed": 104
+        }
+    },
+    "basicAttack": {
+        "name": "Roaring Thunderclap",
+        "type": "BASIC_ATK",
+        "category": "SINGLE_TARGET",
+        "effects": [
+            {
+                "effect": "SINGLE_TARGET",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [50, 60, 70, 80, 90, 100, 110, 120, 130]
+                }
+            }
+        ]
+    },
+    "skill": {
+        "name": "Lightning Flash",
+        "type": "SKILL",
+        "category": "BLAST",
+        "cost": 1,
+        "effects": [
+            {
+                "effect": "BLAST",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [70, 77, 84, 91, 98, 105, 113.75, 122.5, 131.25, 140, 147, 154, 161, 168, 175]
+                },
+                "adjacentScaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [30, 33, 36, 39, 42, 45, 48.75, 52.5, 56.25, 60, 63, 66, 69, 72, 75]
+                }
+            },
+            {
+                "effect": "DEBUFF",
+                "recipient": "ENEMY",
+                "duration": 2,
+                "type": "SHOCK",
+                "baseHitRate": 80,
+                "damage" : {
+                    "effect": "SINGLE_TARGET",
+                    "recipient": "ENEMY",
+                    "scaling": {
+                        "stat": "ATK",
+                        "perLevelModifier": [40, 44, 48, 52, 56, 62, 70, 80, 92, 104, 109.2, 114.4, 119.6, 124.8, 130]
+                    }
+                }
+            }
+        ]
+    },
+    "ultimate": {
+        "name": "Here Comes the Mechanical Fever",
+        "type": "ULTIMATE",
+        "category": "AOE",
+        "cost": 100,
+        "effects": [
+            {
+                "effect": "AREA_OF_EFFECT",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [108, 115.2, 122.4, 129.6, 136.8, 144, 153, 162, 171, 180, 187.2, 194.4, 201.6, 208.8, 216]
+                }
+            },
+            {
+                "effect": "DEBUFF",
+                "recipient": "ENEMY",
+                "duration": 2,
+                "type": "EXTEND_SHOCK"
+            }
+        ]
+    },
+    "talent": {
+        "name": "Galvanic Chords",
+        "type": "TALENT",
+        "category": "ENHANCE",
+        "effects": [
+            {
+                "effect": "AREA_OF_EFFECT",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "perLevelModifier": [36, 39.6, 43.2, 46.8, 50.4, 54, 58.5, 63, 67.5, 72, 75.6, 79.2, 82.8, 86.4, 90]
+                },
+                "triggerFrom": {
+                    "scope": "SELF",
+                    "attacks": true
+                },
+                "triggerFor": {
+                    "scope": "ENEMY",
+                    "hasDebuff": "SHOCK"
+                }
+            }
+        ]
+    },
+    "technique": {
+        "name": "Good Night, Belobog",
+        "type": "TECHNIQUE",
+        "effects": [
+            {
+                "effect": "SINGLE_TARGET",
+                "recipient": "ENEMY",
+                "scaling": {
+                    "stat": "ATK",
+                    "flatModifier": 50
+                }
+            },
+            {
+                "effect": "DEBUFF",
+                "recipient": "ENEMY",
+                "duration": 3,
+                "type": "SHOCK",
+                "baseHitRate": 100,
+                "damage": {
+                    "effect": "AREA_OF_EFFECT",
+                    "recipient": "ENEMY",
+                    "scaling": {
+                        "stat": "ATK",
+                        "flatModifier": 50
+                    }
+                }
+            }
+        ]
+    }
+}

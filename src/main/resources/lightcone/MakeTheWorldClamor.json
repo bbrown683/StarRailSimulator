@@ -1,0 +1,78 @@
+{
+    "name": "Make the World Clamor",
+    "rarity": "STAR_4",
+    "path": "ERUDITION",
+    "baseStats": {
+        "LEVEL_1": {
+            "health": 38,
+            "attack": 21,
+            "defense": 18
+        },
+        "LEVEL_20": {
+            "health": 147,
+            "attack": 83,
+            "defense": 69
+        },
+        "LEVEL_20_30": {
+            "health": 193,
+            "attack": 109,
+            "defense": 90
+        },
+        "LEVEL_30": {
+            "health": 251,
+            "attack": 141,
+            "defense": 117
+        },
+        "LEVEL_30_40": {
+            "health": 312,
+            "attack": 176,
+            "defense": 146
+        },
+        "LEVEL_40": {
+            "health": 370,
+            "attack": 208,
+            "defense": 175
+        },
+        "LEVEL_40_50": {
+            "health": 432,
+            "attack": 243,
+            "defense": 202
+        },
+        "LEVEL_50": {
+            "health": 489,
+            "attack": 275,
+            "defense": 229
+        },
+        "LEVEL_50_60": {
+            "health": 551,
+            "attack": 309,
+            "defense": 258
+        },
+        "LEVEL_60": {
+            "health": 608,
+            "attack": 342,
+            "defense": 285
+        },
+        "LEVEL_60_70": {
+            "health": 670,
+            "attack": 376,
+            "defense": 314
+        },
+        "LEVEL_70": {
+            "health": 727,
+            "attack": 409,
+            "defense": 341
+        },
+        "LEVEL_70_80": {
+            "health": 789,
+            "attack": 443,
+            "defense": 369
+        },
+        "LEVEL_80": {
+            "health": 846,
+            "attack": 476,
+            "defense": 396
+        }
+    },
+    "effects": []
+}
